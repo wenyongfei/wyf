@@ -10,17 +10,11 @@ import java.util.List;
  * @author XX
  */
 @Mapper
-public interface UserMapper {
+public interface UserMapperReader {
 
     User selectById(int id);
 
-    void deleteById(int id);
 
-    void delete(User user);
-
-    void insert(User user);
-
-    void update(User user);
 
     List<User> selectList(User user);
 }

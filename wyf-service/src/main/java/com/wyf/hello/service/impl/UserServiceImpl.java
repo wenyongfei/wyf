@@ -1,14 +1,18 @@
 package com.wyf.hello.service.impl;
 
 import com.wyf.hello.UserService;
-import com.wyf.hello.dao.mapper.slave.UserMapper;
+import com.wyf.hello.dao.mapper.master.UserMapperWriter;
+import com.wyf.hello.dao.mapper.slave.UserMapperReader;
 import com.wyf.po.User;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 /**
  * @author wenyf
@@ -17,15 +21,23 @@ import java.util.List;
  */
 @Log
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
 
     @Autowired
-    private UserMapper userMapper;
+    private UserMapperReader userMapperReader;
+    @Autowired
+    private UserMapperWriter userMapperWriter;
+
+    private Map<String, Object> param;
+
+    public UserServiceImpl(Map<String, Object> param) {
+        this.param = param;
+    }
 
 
     @Override
     public User selectById(int id) {
-        User user = userMapper.selectById(id);
+        User user = userMapperReader.selectById(id);
         return user;
     }
 
@@ -42,20 +54,39 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void insert(User user) throws ArithmeticException{
-        userMapper.insert(user);
-        int num = 1/0;
-//        try {
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("exception.....");
-//        }
+        try {
+        userMapperWriter.insert(new User());
+//        int num = 1/0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("insert exception.....");
+        }
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void insertList(List<User> users) {
+        List<User> list = new ArrayList<>();
+        for (int i = 0;i<100000;i++){
+            User user1 = new User();
+            user1.setPass("pass-"+i);
+            user1.setName("name-"+i);
+            list.add(user1);
+        }
+        try {
+            userMapperWriter.insertList(list);
+//        int num = 1/0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("insertList exception.....");
+        }
     }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void update(User user) throws Exception {
         try {
-            userMapper.update(user);
+            userMapperWriter.update(user);
             int num = 1/0;
         } catch (Exception e) {
             log.info("" + e.toString() + e.getMessage());
@@ -66,7 +97,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> selectList(User user) {
-        List<User> users = userMapper.selectList(user);
+        List<User> users = userMapperReader.selectList(user);
         return users;
     }
+
+
 }

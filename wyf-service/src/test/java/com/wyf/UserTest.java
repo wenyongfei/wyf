@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * @author wenyf
@@ -47,6 +47,10 @@ public class UserTest {
             System.out.println(e.toString());
             System.out.println("#################");
         }
+    }
+    @Test
+    public  void insertList(){
+        userService.insertList(new ArrayList<User>());
     }
 
     @Test

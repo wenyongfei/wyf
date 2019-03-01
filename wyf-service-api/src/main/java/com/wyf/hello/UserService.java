@@ -20,6 +20,8 @@ public interface UserService {
 
     void insert(User user);
 
+    void insertList(List<User> users);
+
     void update(User user) throws Exception;
 
     List<User> selectList(User user);
