@@ -1,0 +1,12 @@
+debug:
+  false
+log:
+  path: D:/data/log/hello-controller
+  level: info
+
+dubbo:
+  zookeeper: 192.168.65.13:2181
+  port : 20880
+
+server:
+  port: 8088

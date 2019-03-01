@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring.profiles.include:
+# 配置项值为application-{profile}.yml文件的profile值
+  - config
+  - jdbc
+debug:
+  false
+log:
+  path: D:/data/log/rabbit-service
+  level: info
+
+dubbo:
+  zookeeper: 192.168.65.13:2181
+  port : 20880
+
+mybatis:
+    config-location: classpath:mybatis/mybatis-config.xml
+    mabatis-locations: classpath:mybatis/mybatis/*.xml

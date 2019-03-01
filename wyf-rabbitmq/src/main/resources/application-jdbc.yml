@@ -1,0 +1,53 @@
+spring.datasource.druid:
+  wyfdb:
+      master:
+        driverClassName: com.mysql.jdbc.Driver
+        url : jdbc:mysql:///wyfdb?useUnicode=true&characterEncoding=utf-8
+        username : root
+        password : root
+        initial-size: 10
+        max-active: 10
+        validationQuery: select 1
+        testOnBorrow: true
+        testWhileIdle : true
+        timeBetweenEvictionRunsMillis: 60000
+      slave:
+        driverClassName: com.mysql.jdbc.Driver
+        url : jdbc:mysql:///wyfdb?useUnicode=true&characterEncoding=utf-8
+        username : root
+        password : root
+        nitial-size: 5
+        initial-size: 10
+        max-active: 10
+        validationQuery: select 1
+        testOnBorrow: true
+        testWhileIdle : true
+        timeBetweenEvictionRunsMillis: 60000
+#  refundsdb:
+#      master:
+#        driverClassName: com.mysql.jdbc.Driver
+#        url : jdbc:mysql://192.168.0.53:3306/xfs_refundsdb?useUnicode=true&characterEncoding=utf-8
+#        username : root
+#        password : hPW^4kCCeFSLYWqY
+#        initial-size: 10
+#        max-active: 10
+#        validationQuery: select 1
+#        testOnBorrow: true
+#        testWhileIdle : true
+#        timeBetweenEvictionRunsMillis: 60000
+#      slave:
+#        driverClassName: com.mysql.jdbc.Driver
+#        url : jdbc:mysql://192.168.0.53:3306/xfs_refundsdb?useUnicode=true&characterEncoding=utf-8
+#        username : root
+#        password : hPW^4kCCeFSLYWqY
+#        nitial-size: 5
+#        initial-size: 10
+#        max-active: 10
+#        validationQuery: select 1
+#        testOnBorrow: true
+#        testWhileIdle : true
+#        timeBetweenEvictionRunsMillis: 60000
+
+
+
+

@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.10.RELEASE</version>
+  </parent>
+
+  <groupId>com.wyf</groupId>
+  <artifactId>wyf-common-dependencies</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>wyf-common-dependencies</name>
+  <description>Parent pom providing dependency for wyf_application</description>
+  <organization>
+    <name>feifei platform</name>
+  </organization>
+  <properties>
+    <java.version>1.8</java.version>
+    <alibaba.dubbo>2.5.8</alibaba.dubbo>
+    <mybatis-spring-boot-starter>1.3.0</mybatis-spring-boot-starter>
+    <druid>1.1.8</druid>
+    <swagger2>2.7.0</swagger2>
+    <com.google.guava>19.0</com.google.guava>
+    <alibaba.fastjson>1.2.46</alibaba.fastjson>
+    <commons-io>2.4</commons-io>
+    <zkclient>0.10</zkclient>
+    <commons-lang3>3.6</commons-lang3>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>${alibaba.dubbo}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis-spring-boot-starter}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>${druid}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>${swagger2}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>${swagger2}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${com.google.guava}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${alibaba.fastjson}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.101tec</groupId>
+        <artifactId>zkclient</artifactId>
+        <version>${zkclient}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!--<distributionManagement>-->
+    <!--<repository>-->
+      <!--<id>maven-releases</id>-->
+      <!--<url>http://192.168.0.51:8081/repository/maven-releases/</url>-->
+    <!--</repository>-->
+    <!--<snapshotRepository>-->
+      <!--<id>maven-snapshots</id>-->
+      <!--<url>http://192.168.0.51:8081/repository/maven-snapshots/</url>-->
+    <!--</snapshotRepository>-->
+  <!--</distributionManagement>-->
+  <repositories>
+    <repository>
+      <id>nexus</id>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+</project>

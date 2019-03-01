@@ -1,0 +1,28 @@
+application-config:
+#  apiUrl:
+#      api.product.xfs.idc: http://192.168.0.53:8281/product
+#      api.customer.xfs.idc: http://192.168.0.53:8281/customer
+  busValue:
+#      max: 20
+  servers:
+#         - dev.bar.com
+#         - foo.bar.com
+
+apiUrl:
+
+
+
+#    api.product.xfs.idc: http://192.168.0.53:8281/product
+
+#spring.rabbitmq.host=47.94.175.83
+#spring.rabbitmq.port=5672
+#spring.rabbitmq.username=guest
+#spring.rabbitmq.password=guest
+#server.port=8081
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
